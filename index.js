@@ -1,4 +1,4 @@
-import fetchHeroes from "../api/fetchHeroes.js";
+import fetchHeroes from "./fetchHeroes.js";
 let heroes = await fetchHeroes();
 
 
