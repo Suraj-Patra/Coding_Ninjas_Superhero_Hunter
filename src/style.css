@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-
-.parent_container {
+/* ----------------- all_heroes-section ------------------ */
+#all_heroes .parent_container {
     margin: 2rem;
 
     display: grid;
@@ -37,4 +37,18 @@
 
 .information {
     cursor: pointer;
+}
+
+
+/* ----------------- all_heroes-section ------------------ */
+#one_hero .parent_container {
+    height: 100vh;
+    border: 1px solid black;
+    margin: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    gap: 5rem;
+    justify-content: space-between; 
+    align-content: center;
 }

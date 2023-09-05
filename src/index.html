@@ -14,7 +14,6 @@
         <nav>
             <button id='show_all'>Home</button=>
             <button id='show_favorite'>My favorite Superheroes</button>
-            <a href="">Information</a>
         </nav>
     </header>
 
@@ -22,11 +21,43 @@
         <form>
             <input type="text" id='search'>
         </form>
-        <div class="parent_container"></div>
+        <div class="parent_container">
+            <!--    // template            
+            <div class='card'>
+                <div>
+                    <img src="${thumbnail_path}.${thumbnail_extension}">
+                </div>
+                <h2>${hero_name}</h2>
+                <span class='favorite_btn favorite'>&#10029;</span>
+                <span class='information'>&#10171;</span>
+            </div> 
+            -->
+        </div>
     </main>
 
     <main id='one_hero'>
-        <div class="parent_container"></div>
+        <div class="parent_container">
+            <!--    // template            
+             <div class='info'>
+                <div class='info_img_container'>
+                    <img src="${thumbnail_path}.${thumbnail_extension}">
+                </div>
+                <h2 class='info_name'>${hero_name}</h2>
+                <h2 class='total_comics'>Total Comics : ${total_comics.length}</h2>
+                <h2 class='total_comics'>Total Seires : ${total_series.length}</h2>
+            </div>
+            <div class='comic_section'>
+                <ul>
+                    <li>${comic.name}</li>        
+                </ul>
+            </div>
+            <div class='series_section'>
+                <ul>
+                    <li>${series.name}</li>
+                </ul>
+            </div>
+            -->
+        </div>
     </main>
 </body>
 </html>
