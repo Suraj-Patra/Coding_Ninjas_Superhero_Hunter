@@ -2,53 +2,162 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ----------------- nav-section ------------------ */
+nav{
+    width: 100%;
+    padding: 0.5em 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    background: #0d1926;
+}
+nav button {
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+nav button:hover {
+    background-color: #fff;
+}
+
+
+
 /* ----------------- all_heroes-section ------------------ */
-#all_heroes .parent_container {
+
+/* form-input section */
+#all_heroes form {
     margin: 2rem;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
+}
+#all_heroes form input{
+    padding: 1em;
+}
+
+
+/* parent_container section */
+#all_heroes #parent_container_first {
+    margin: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     gap: 0.8rem;
-    justify-content: center;
-    align-content: center;
+    /* justify-content: center;
+    align-content: center; */
 }
 
+/* parent_container card section */
 .card {
-    display: grid;
-    align-content: space-between;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #aaa;
+    transition: all 0.2s ease-in-out;
 }
- img {
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 5px #aaa ;
+}
+.card span {    /* favorite and info buttons */
+    cursor: pointer;
+}
+
+.card_img img {
     width: 100%;
     height: 100%;
 }
 
 
-.favorite_btn {
+
+.card_info {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_info h2 {
+    font-size: 1.2rem;
+    width: 80%;
+}
+.card_info span {
+    font-size: 2rem;
+    color: #0d1926;
+    transition: all 0.2s ease-in-out;
+}
+.card_info span:hover {
+    color: #0e4177;
+}
+.card_info_btns {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_info .favorite_btn {
     cursor: pointer;
 }
-.favorite {
-    color: red;
+.card_info .favorite {
+    color: tomato;
 }
 
-
-.information {
+.card_info .information {
     cursor: pointer;
 }
 
 
-/* ----------------- all_heroes-section ------------------ */
-#one_hero .parent_container {
-    height: 100vh;
-    border: 1px solid black;
-    margin: 2rem;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-    gap: 5rem;
+/* ----------------- one_hero-section ------------------ */
+
+#one_hero #parent_container_last {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
     justify-content: space-between; 
-    align-content: center;
+    
+    background: #0d1926;
+    color: #aaa;
+    margin: 3em auto;
+    padding: 2em;
+}
+
+#parent_container_last .info_img_container {
+    max-width: 250px;
+}
+
+#parent_container_last .info_img_container img {
+    width: 100%;
+}
+
+#parent_container_last .info h2 {
+    font-size: 2rem;
+    margin: 1.2em 0;
+}
+
+#parent_container_last ul {
+    list-style-type: none;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    margin: 1.2em 0;
+}
+#parent_container_last .comic_section h2,
+#parent_container_last .series_section h2 {
+    text-decoration: underline;
+    color: #0e4177;
+}
+
+
+@media screen and (max-width: 600px) {
+    #one_hero #parent_container_last {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+    }
 }

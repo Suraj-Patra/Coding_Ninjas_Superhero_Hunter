@@ -5,8 +5,8 @@ let heroes = await fetchHeroes();
 
 const all_heroes_section = document.querySelector('#all_heroes');
 const one_heroes_section = document.querySelector('#one_hero');
-const parent_container_first = document.querySelector('#all_heroes').querySelector('.parent_container');
-const parent_container_last = document.querySelector('#one_hero').querySelector('.parent_container');
+const parent_container_first = document.querySelector('#parent_container_first');
+const parent_container_last = document.querySelector('#parent_container_last');
 
 
 
@@ -16,7 +16,7 @@ function makeFavourite() {
         card.addEventListener('click', (e) => {
             if(e.target.classList.contains('favorite_btn')) {
                 e.target.classList.toggle('favorite')
-                let name = e.target.parentElement.querySelector('h2').textContent;  
+                let name = e.target.parentElement.parentElement.querySelector('h2').textContent;  
                 const index = heroes.findIndex(hero => hero.name.includes(name));
                 if(!heroes[index].isFavorite) heroes[index].isFavorite = false;
                 heroes[index].isFavorite = !heroes[index].isFavorite;
@@ -34,17 +34,21 @@ function showHeroes(heroes) {
         const thumbnail_extension = hero.thumbnail.extension;
     
         let span = '';
-        if(hero.isFavorite) span = `<span class='favorite_btn favorite'>&#10029;</span>`
-        else span = `<span class='favorite_btn'>&#10029;</span>`
+        if(hero.isFavorite) span = `<span class='favorite_btn favorite' title='Add to favorite'>&#9829;</span>`
+        else span = `<span class='favorite_btn' title='Add to favorite'>&#9829;</span>`
 
         const card = `
             <div class='card'>
-                <div>
+                <div class='card_img'>
                     <img src="${thumbnail_path}.${thumbnail_extension}">
                 </div>
-                <h2>${hero_name}</h2>
-                ${span}
-                <span class='information'>&#10171;</span>
+                <div class='card_info'>
+                    <h2>${hero_name}</h2>
+                    <div class='card_info_btns'>
+                        ${span}
+                        <span class='information' title='Show More Information'>&#10140;</span>
+                    </div>
+                </div>
             </div>
         `
 
@@ -77,6 +81,7 @@ function showFavorites() {
        parent_container_first.innerHTML = `<h1>You do not have any favorite hero!</h1>`
         return;
     }
+
     showHeroes(favorite_heroes);
 }
 const favorite_btn = document.getElementById('show_favorite');
@@ -95,7 +100,7 @@ function showInformation(e) {
     one_heroes_section.style.display = 'block';
     all_heroes_section.style.display = 'none';
 
-    let name = e.target.parentElement.querySelector('h2').textContent;  
+    let name = e.target.parentElement.parentElement.querySelector('h2').textContent;  
     const index = heroes.findIndex(hero => hero.name.includes(name));
     const hero = heroes[index];
 
@@ -112,12 +117,13 @@ function showInformation(e) {
                 <img src="${thumbnail_path}.${thumbnail_extension}">
             </div>
             <h2 class='info_name'>${hero_name}</h2>
-            <h2 class='total_comics'>Total Comics : ${total_comics.length}</h2>
-            <h2 class='total_comics'>Total Seires : ${total_series.length}</h2>
+            <h3 class='total_comics'>Total Comics : ${total_comics.length}</h3>
+            <h3 class='total_comics'>Total Seires : ${total_series.length}</h3>
         </div>
     `
     const comics_section = `
         <div class='comic_section'>
+            <h2>Comics</h2>
             <ul>
                 ${
                     total_comics.map(comic => `<li>${comic.name}</li>`).join("")
@@ -127,6 +133,7 @@ function showInformation(e) {
     `
     const series_section = `
         <div class='series_section'>
+            <h2>Series</h2>
             <ul>
                 ${
                     total_series.map(series => `<li>${series.name}</li>`).join("")

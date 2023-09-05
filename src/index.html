@@ -10,48 +10,52 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <button id='show_all'>Home</button=>
-            <button id='show_favorite'>My favorite Superheroes</button>
-        </nav>
-    </header>
+    <nav>
+        <button id='show_all'>Home</button=>
+        <button id='show_favorite'>My favorite Superheroes</button>
+    </nav>
 
     <main id='all_heroes'>
         <form>
-            <input type="text" id='search'>
+            <input type="text" id='search' placeholder='Search for heroes ...'>
         </form>
-        <div class="parent_container">
-            <!--    // template            
+        <div id="parent_container_first">
+            <!--    ------------- TEMPLATE  --------------------          
             <div class='card'>
-                <div>
+                <div class='card_img'>
                     <img src="${thumbnail_path}.${thumbnail_extension}">
                 </div>
-                <h2>${hero_name}</h2>
-                <span class='favorite_btn favorite'>&#10029;</span>
-                <span class='information'>&#10171;</span>
+                <div class='card_info'>
+                    <h2>${hero_name}</h2>
+                    <div class='card_info_btns'>
+                        <span class='favorite_btn favorite'>&#10029;</span>
+                        <span class='information'>&#10171;</span>
+                    </div>
+                </div>
             </div> 
             -->
         </div>
     </main>
 
     <main id='one_hero'>
-        <div class="parent_container">
-            <!--    // template            
+        <div id="parent_container_last">
+            <!--    ------------- TEMPLATE  --------------------         
              <div class='info'>
                 <div class='info_img_container'>
                     <img src="${thumbnail_path}.${thumbnail_extension}">
                 </div>
                 <h2 class='info_name'>${hero_name}</h2>
-                <h2 class='total_comics'>Total Comics : ${total_comics.length}</h2>
-                <h2 class='total_comics'>Total Seires : ${total_series.length}</h2>
+                <h3 class='total_comics'>Total Comics : ${total_comics.length}</h3>
+                <h3 class='total_comics'>Total Seires : ${total_series.length}</h3>
             </div>
             <div class='comic_section'>
+                <h2>Comics</h2>
                 <ul>
                     <li>${comic.name}</li>        
                 </ul>
             </div>
             <div class='series_section'>
+                <h2>Series</h2>
                 <ul>
                     <li>${series.name}</li>
                 </ul>
