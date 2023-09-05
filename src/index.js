@@ -1,5 +1,4 @@
 import fetchHeroes from "../api/fetchHeroes.js";
-
 let heroes = await fetchHeroes();
 
 
@@ -9,7 +8,7 @@ const parent_container_first = document.querySelector('#parent_container_first')
 const parent_container_last = document.querySelector('#parent_container_last');
 
 
-
+// Making favorite :
 function makeFavourite() {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
@@ -27,6 +26,8 @@ function makeFavourite() {
     })
 
 }
+
+// Display Heroes :
 function showHeroes(heroes) {
     const cards = heroes.map(hero => {
         const hero_name = hero.name;
@@ -63,7 +64,7 @@ function showHeroes(heroes) {
 }
 showHeroes(heroes);
 
-
+// Search Hero :
 function searchHeroes() {
     const search_input = document.getElementById('search');
     search_input.addEventListener('keyup', (e) => {
@@ -74,7 +75,7 @@ function searchHeroes() {
 }
 searchHeroes();
 
-
+// Show favorite heroes :
 function showFavorites() {
     const favorite_heroes = heroes.filter(hero => hero.isFavorite);
     if(!favorite_heroes.length) {
@@ -87,6 +88,7 @@ function showFavorites() {
 const favorite_btn = document.getElementById('show_favorite');
 favorite_btn.addEventListener('click', showFavorites);
 
+// Show all heroes :
 function showAll() {
     const all_heroes = heroes;
     showHeroes(all_heroes);
@@ -95,7 +97,7 @@ const home_btn = document.getElementById('show_all');
 home_btn.addEventListener('click', showAll);
 
 
-
+// Show information :
 function showInformation(e) {
     one_heroes_section.style.display = 'block';
     all_heroes_section.style.display = 'none';

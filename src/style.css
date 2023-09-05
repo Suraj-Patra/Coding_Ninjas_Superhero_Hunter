@@ -84,7 +84,7 @@ nav button:hover {
 }
 .card_info h2 {
     font-size: 1.2rem;
-    width: 80%;
+    width: 75%;
 }
 .card_info span {
     font-size: 2rem;
@@ -95,7 +95,7 @@ nav button:hover {
     color: #0e4177;
 }
 .card_info_btns {
-    width: 20%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
 }
